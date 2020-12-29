@@ -12,8 +12,8 @@ function Popup() {
   return (
     <div className={isActive ? "popup hidden__popup" : "popup hide__popup"}>
       <div className="popup__content">
-        <div className="popup__close">
-          <svg onClick={toggleActive}>
+        <div className="popup__close" onClick={toggleActive}>
+          <svg>
             <CloseIcon />
           </svg>
         </div>

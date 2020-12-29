@@ -4,21 +4,52 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import CloseIcon from '@material-ui/icons/Close';
 import ListIcon from '@material-ui/icons/List';
-import { useState } from "react";
+// import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
+
 
 function Header() {
  
   const [isActive, setActive] = useState("false");
+  const [isActive1 , setActive1] = useState("false");
+
+  const [scrolling, setScrolling] = useState(false);
+  const [scrollTop, setScrollTop] = useState(0);
+  const [hev, setHev] = useState(false);
+
+  useEffect(() => {
+      window.addEventListener("scroll", () =>{
+          if(window.scrollY > 100){
+              setHev(true)
+          } else setHev(false);
+      });
+      return () =>{
+          window.removeEventListener("scroll");
+      }
+  }, [])   
+
+  useEffect(() => {
+    const onScroll = e => {
+        setScrollTop(e.target.documentElement.scrollTop);
+        setScrolling(e.target.documentElement.scrollTop > scrollTop);
+      };
+      window.addEventListener("scroll", onScroll);
+  
+      return () => window.removeEventListener("scroll", onScroll);
+
+  }, [scrollTop]);
 
   const handleToggle = (e) => {
     e.preventDefault()
     setActive(!isActive);
+    setActive1(!isActive)
   };
 
   return (
     <div className="navigation">
       <div className="container">
-        <nav className="nav">
+        <nav className={`nav ${hev && "fix__nav"}`}>
           <div className="nav__hamburger">
             <svg onClick={handleToggle}>
               {/* <use xlinkHref="../images/sprite.svg#icon-cross" /> */}
@@ -26,9 +57,10 @@ function Header() {
             </svg>
           </div>
           <div className="nav__logo">
-            <a href="/" className="scroll-link">
+          <Link to="/" className="scroll-link">PHONE</Link>
+            {/* <a href="/" className="scroll-link">
               PHONE
-            </a>
+            </a> */}
           </div>
           <div className={isActive ? "nav__menu open" : "nav__menu"}>
             <div className="menu__top">
@@ -44,9 +76,10 @@ function Header() {
             </div>
             <ul className="nav__list">
               <li className="nav__item">
-                <a href="#header" className="nav__link scroll-link">
+                {/* <a href="/header" className="nav__link scroll-link">
                   Home
-                </a>
+                </a> */}
+                <Link to="/home" className="nav__link scroll-link">PHONE</Link>
               </li>
               <li className="nav__item">
                 <a href="#category" className="nav__link scroll-link">
@@ -87,6 +120,11 @@ function Header() {
             </a>
           </div>
         </nav>
+        {/* <a href="/header" className={isActive ? "goto-top show-top scroll-link" : " goto-top scroll-link"} in={!scrolling}  >
+           <svg>
+              <ArrowUpwardIcon />
+           </svg>
+        </a>    */}
       </div>
     </div>
   );

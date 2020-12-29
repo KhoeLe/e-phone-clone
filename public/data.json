@@ -1,5 +1,6 @@
 {
-    "products": [{
+    "products": [
+        {
             "id": 6,
             "title": "Apple iPhone 11",
             "image": "./images/products/iphone/iphone3.jpeg",
