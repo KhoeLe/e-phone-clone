@@ -5,6 +5,7 @@ import Glide, { Controls, Swipe,Autoplay } from "@glidejs/glide/dist/glide.modul
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { SliderData } from "./Glider/SliderData";
+import { Link } from "react-router-dom";
 
 function Banner({ id }) {
   const carouselRef = useRef(null);
@@ -60,9 +61,12 @@ function Banner({ id }) {
                       <span>New Inspirations 2020</span>
                       <h1>Phone made for you</h1>
                       <p>{item.title}</p>
-                      <a href="/">
+                      {/* <a href="/">
+                       
+                      </a> */}
+                      <Link to="/" >
                         <button className="hero__btn">SHOP NOW</button>
-                      </a>
+                      </Link>
                     </div>
                     <div className="hero__right">
                       <div className="hero__img-container">

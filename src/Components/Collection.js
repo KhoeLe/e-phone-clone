@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import "./Collection.css"
 import AOS from 'aos';
+import { Link } from "react-router-dom";
+
 
 function Collection() {
   useEffect(() => {
@@ -9,6 +11,7 @@ function Collection() {
     });
   },[])
   return (
+
     <section className="section collection" id="collection">
         <div className="collection__container" data-aos={"fade-up"}>
           <div className="collection__box">
@@ -23,9 +26,15 @@ function Collection() {
               <div className="collection__data">
                 <span>New Colors Introduced</span>
                 <h1>HeadPhone</h1>
-                <a href="/" className>
-                  SHOP NOW
-                </a>
+                <li>
+                  <Link to='/'>
+                     SHOP NOW
+                  </Link>
+                </li>
+               
+                {/* <a href="/" className>
+                  
+                </a> */}
               </div>
             </div>
           </div>
