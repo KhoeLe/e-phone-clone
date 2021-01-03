@@ -51,7 +51,7 @@ function NewsSection({ id }) {
     }, 0);
   }, []);
 
-  console.log(NewsSections);
+  // console.log(NewsSections);
 
   return (
     <div className="NewsSections">

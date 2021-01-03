@@ -7,7 +7,7 @@ import "@glidejs/glide/dist/css/glide.core.min.css";
 function Testimonial({id}) {
 
   const carouselRef = useRef(null);
-  console.log(Ilion)
+  // console.log(Ilion)
 
   function MyEvent(Glide, Components, Events) {
     var Example = {
@@ -16,7 +16,7 @@ function Testimonial({id}) {
       // },
 
       method() {
-        console.log(Glide.index);
+        // console.log(Glide.index);
       },
     };
 

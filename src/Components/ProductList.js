@@ -1,8 +1,10 @@
 import "./ProductList.css";
 import Product from "./Product";
 import { useState, useEffect } from "react";
-
 import {items }from "./data/data.json"
+import AOS from 'aos';
+
+
 
 function ProductList() {
 
@@ -26,9 +28,15 @@ function ProductList() {
       setProducts(filteredProducts)
       //variable being listened for change
   }, [category])
+
+  useEffect(() => {
+    AOS.init({
+      duration : 2000
+    });
+  },[])
  
   return (
-    <section className="category__section section" id="category">
+    <section className="category__section section" id="category" data-aos={"fade-up"}>
       <div className="tab__list">
         <div className="title__container tabs">
           <div className="section__titles category__titles" onClick={handleFilterChange} >
@@ -69,9 +77,15 @@ function ProductList() {
             </div>
           </div>
         </div>
-        <div className="category__container">
-          <Product  products={products}/>
-        </div>
+
+            <div className="category__container">
+                  <div className="category__center">
+                    {products.map((items) =>(
+                        <Product  key={items.id} image={items.image} title={items.title} price={items.price} id={items.id}/>
+                          ))}
+               
+                  </div>
+            </div>
       </div>
     </section>
   );

@@ -7,16 +7,19 @@ import ListIcon from '@material-ui/icons/List';
 // import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCard} from "features/cardSlice";
 
 
 function Header() {
  
   const [isActive, setActive] = useState("false");
-  const [isActive1 , setActive1] = useState("false");
-
-  const [scrolling, setScrolling] = useState(false);
-  const [scrollTop, setScrollTop] = useState(0);
+  // const [isActive1 , setActive1] = useState("false");
+  // const [scrolling, setScrolling] = useState(false);
+  // const [scrollTop, setScrollTop] = useState(0);
   const [hev, setHev] = useState(false);
+  // const totalAmount = useSelector((state) => state.cart.totalAmount);
+  
 
   useEffect(() => {
       window.addEventListener("scroll", () =>{
@@ -29,22 +32,24 @@ function Header() {
       }
   }, [])   
 
-  useEffect(() => {
-    const onScroll = e => {
-        setScrollTop(e.target.documentElement.scrollTop);
-        setScrolling(e.target.documentElement.scrollTop > scrollTop);
-      };
-      window.addEventListener("scroll", onScroll);
+  // useEffect(() => {
+  //   const onScroll = e => {
+  //       setScrollTop(e.target.documentElement.scrollTop);
+  //       setScrolling(e.target.documentElement.scrollTop > scrollTop);
+  //     };
+  //     window.addEventListener("scroll", onScroll);
   
-      return () => window.removeEventListener("scroll", onScroll);
+  //     return () => window.removeEventListener("scroll", onScroll);
 
-  }, [scrollTop]);
+  // }, [scrollTop]);
 
   const handleToggle = (e) => {
     e.preventDefault()
     setActive(!isActive);
-    setActive1(!isActive)
+    // setActive1(!isActive)
   };
+
+  // console.log("object",totalAmount.length)
 
   return (
     <div className="navigation">

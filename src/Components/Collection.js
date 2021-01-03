@@ -50,7 +50,7 @@ function Collection() {
               <div className="collection__data">
                 <span>Phone Device Present</span>
                 <h1>SMARTPHONE</h1>
-                <a href="/" className>
+                <a href="/" >
                   SHOP NOW
                 </a>
               </div>

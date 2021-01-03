@@ -55,7 +55,7 @@ function Banner({ id }) {
           <ul className="glide__slides">
             {SliderData.map((item) => {
               return (
-                <li className="glide__slide" key={item.img}>
+                <li className="glide__slide" key={item.id}>
                   <div className="hero__center">
                     <div className="hero__left">
                       <span>New Inspirations 2020</span>
