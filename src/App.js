@@ -1,4 +1,5 @@
 import Banner from "Components/Banner";
+import Cart from "Components/Cart";
 import Collection from "Components/Collection";
 import Facility from "Components/Facility";
 import Footer from "Components/Footer";
@@ -7,7 +8,7 @@ import LatestProduct from "Components/LatestProduct";
 import NewsSection from "Components/NewsSection";
 import Popup from "Components/Popup";
 import ProductList from "Components/ProductList";
-import ScrollToTop from "Components/ScrollToTop";
+// import ScrollToTop from "Components/ScrollToTop";
 import Testimonial from "Components/Testimonial";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -21,24 +22,32 @@ function App() {
 
           <Switch>
 
+
+            <Route path='/cart'>
+                <Cart />
+            </Route>
+
             <Route path="/">
                 <Popup />
                 <Banner />
-                <div className='container'>
-                <Collection/>
-                <LatestProduct  id={1} />
-                <ProductList  id={1} />
-                </div>
+
+                  <div className='container'>
+                    <Collection/>
+                    <LatestProduct  id={1} />
+                    <ProductList  id={1} />
+                  </div>
                 
                 <Facility />
                 <Testimonial id={1} />
-              
+                <NewsSection id={1}/>
+
             </Route>
+
+          
 
          
           {/* <ScrollToTop /> */}
           </Switch>
-              <NewsSection id={1}/>
               <Footer />
       </Router>
     </div>

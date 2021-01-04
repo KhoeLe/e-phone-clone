@@ -8,7 +8,7 @@ import ListIcon from '@material-ui/icons/List';
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectCard} from "features/cardSlice";
+import { selectCartItem} from "features/cartSlice";
 
 
 function Header() {
@@ -18,7 +18,7 @@ function Header() {
   // const [scrolling, setScrolling] = useState(false);
   // const [scrollTop, setScrollTop] = useState(0);
   const [hev, setHev] = useState(false);
-  // const totalAmount = useSelector((state) => state.cart.totalAmount);
+  const totalAmount = useSelector(selectCartItem);
   
 
   useEffect(() => {
@@ -49,7 +49,7 @@ function Header() {
     // setActive1(!isActive)
   };
 
-  // console.log("object",totalAmount.length)
+  console.log("object",totalAmount.totalCart)
 
   return (
     <div className="navigation">
@@ -116,13 +116,13 @@ function Header() {
                 <SearchIcon/>
               </svg>
             </a>
-            <a href="/" className="icon__item">
+            <Link to="/cart" className="icon__item">
               <svg className="icon__cart">
                 {/* <use xlinkHref="./images/sprite.svg#icon-shopping-basket" /> */}
                   <ShoppingBasketIcon/>
               </svg>
-              <span id="cart__total">0</span>
-            </a>
+              <span id="cart__total">{totalAmount.totalCart}</span>
+            </Link>
           </div>
         </nav>
         {/* <a href="/header" className={isActive ? "goto-top show-top scroll-link" : " goto-top scroll-link"} in={!scrolling}  >

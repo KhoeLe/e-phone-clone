@@ -14,7 +14,7 @@ function NewsSection({ id }) {
       // },
 
       method() {
-        console.log(Glide.index);
+        // console.log(Glide.index);
       },
     };
 

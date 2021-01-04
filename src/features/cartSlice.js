@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-let nextItemId = 1;
-
 // const initialState = {
 //     basket: [
 //         //  {
@@ -26,19 +24,18 @@ let nextItemId = 1;
 //     user: null,
 // }
 
-export const getBaketTotal = (basket) =>
-  basket?.reduce((amount, item) => item.price + amount, 0);
 
-export const cardSlice = createSlice({
+export const cartSlice = createSlice({
   name: "cart",
   initialState: {
     cartItems: [],
     totalAmount: 0,
+    totalCart: 0,
   },
   reducers: {
     addCard: (state, action) => {
       const newItem = action.payload;
-      console.log("redux",action.payload)
+      // console.log("redux",action.payload)
       const idx = state.cartItems.findIndex(
         (x) => x.id === newItem.id
       );
@@ -50,13 +47,16 @@ export const cardSlice = createSlice({
         state.cartItems[idx].quantity += newItem.quantity;
       }
       state.totalAmount += newItem.price * newItem.quantity;
+
+      state.totalCart += newItem.quantity
     },
   },
 });
 
-export const { addCard, logout } = cardSlice.actions;
+export const { addCard, } = cartSlice.actions;
 
-export const selectCard = (state) => state.card.cartItems;
+export const selectCartItem = (state) => state.cart;
+
 // export const selectAmount = (state) => state.card.totalAmount;
 
-export default cardSlice.reducer;
+export default cartSlice.reducer;

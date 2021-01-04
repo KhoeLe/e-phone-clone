@@ -4,13 +4,12 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import LoopIcon from "@material-ui/icons/Loop";
 // import { ProductData } from "./Glider/product";
 // import "./Product.css";
-import { useDispatch, useSelector } from "react-redux";
-import { addCard, selectCard } from "features/cardSlice";
+import { useDispatch } from "react-redux";
+import { addCard } from "features/cartSlice";
 
 function Product({ id, image, title, price }) {
   const dispatch = useDispatch();
 
-  // const basket = useSelector(selectCard);
 
   const addtoBasket = () => {
     dispatch(
@@ -24,7 +23,6 @@ function Product({ id, image, title, price }) {
     );
   };
 
-  // console.log("products:",basket,);
 
   return (
     <div className="product category__product">
